@@ -1,0 +1,178 @@
+@import "tailwindcss";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+  /* Keep measurement tokens whole: never break inside "м/с²" etc. */
+  overflow-wrap: normal;
+  word-break: normal;
+  line-break: loose;
+  hyphens: none;
+}
+
+.formula-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  padding: 16px 24px;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 16px 0;
+}
+
+.fact-box {
+  background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+  border-left: 4px solid #eab308;
+  border-radius: 0 12px 12px 0;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+.example-box {
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border: 2px solid #22c55e;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.question-box {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 100%);
+  border: 2px solid #a855f7;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.remember-box {
+  background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+  border: 2px solid #f43f5e;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+}
+
+.solution-step {
+  border-left: 3px solid #6366f1;
+  padding-left: 16px;
+  margin: 8px 0;
+}
+
+.energy-bar {
+  height: 24px;
+  border-radius: 12px;
+  transition: width 0.5s ease;
+}
+
+.nav-link {
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  transform: translateX(4px);
+}
+
+.section-card {
+  transition: all 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.katex {
+  font-size: 1.1em;
+}
+
+/* Make sure KaTeX rendering is not clipped */
+.math-inline,
+.math-display {
+  overflow: visible !important;
+}
+
+.math-display .katex-display {
+  margin: 0.3em 0;
+  overflow: visible;
+}
+
+.katex .mord,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct {
+  overflow: visible;
+}
+
+.btn-check {
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-check:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+}
+
+.btn-reveal {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-reveal:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes bounce-ball {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.bounce-ball {
+  animation: bounce-ball 1.5s ease-in-out infinite;
+}
+
+.progress-bar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: #e5e7eb;
+  z-index: 100;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #a855f7);
+  transition: width 0.3s ease;
+}
